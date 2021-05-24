@@ -33,6 +33,9 @@
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
 
+;; 编辑代码按 C-c ' 返回org的时候前面的空格
+(setq org-edit-src-content-indentation 0)
+
 (defun kj/org-mode-hook ()
   (when (bound-and-true-p org-html-table-default-attributes)
     (setq org-html-table-default-attributes

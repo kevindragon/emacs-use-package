@@ -78,7 +78,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ein-notebook ob-restclient typescript-mode yaml-mode ein elpy plantuml-mode treemacs-all-the-icons kubernetes doom-themes restclient lsp-java python-pytest counsel ivy dap-java dap-python company-posframe magit hl-todo htmlize org-pomodoro powershell flycheck-posframe flycheck rg ripgrep yasnippet-snippets yasnippet symbol-overlay benchmark-init dashboard all-the-icons exec-path-from-shell page-break-lines window-numbering dracula-theme company-quickhelp company-help lsp-pyright company projectile use-package))
+   '(tide web-mode ng2-mode ein-notebook ob-restclient typescript-mode yaml-mode ein elpy plantuml-mode treemacs-all-the-icons kubernetes doom-themes restclient lsp-java python-pytest counsel ivy dap-java dap-python company-posframe magit hl-todo htmlize org-pomodoro powershell flycheck-posframe flycheck rg ripgrep yasnippet-snippets yasnippet symbol-overlay benchmark-init dashboard all-the-icons exec-path-from-shell page-break-lines window-numbering dracula-theme company-quickhelp company-help lsp-pyright company projectile use-package))
  '(safe-local-variable-values
    '((project-enable-remote . t)
      (remote-path . "/data/sdb/kevin/workspace/lnip_backend_semantic_analysis")

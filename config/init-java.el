@@ -9,11 +9,12 @@
 (defvar kj/java-lombok-jar "c:/software/lombok.jar")
 
 (defun kj/java-mode-hook ()
-  ;; (lsp)
   (symbol-overlay-mode 1)
   (setq-default tab-width 4)
-  (setq lsp-java-configuration-maven-user-settings
-        "c:/workspace/lexisnexis/TotalPatentOne/settings_lnip.xml"))
+  (lsp)
+  ;; (setq lsp-java-configuration-maven-user-settings
+  ;;       "c:/workspace/lexisnexis/TotalPatentOne/settings_lnip.xml")
+  )
 
 (use-package lsp-java
   :config

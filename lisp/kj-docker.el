@@ -43,7 +43,8 @@
                  "docker" "commit" kj/docker-container-name kj/docker-image-name)
   (kj/docker--show-side-window))
 
-(defun kj/docker-run ()
+(defun kj/docker-v-run ()
+  "从ubuntu初始运行我的Linux虚拟机."
   (interactive)
   (start-process
    "kj/docker-run" (kj/docker-buf)
@@ -54,13 +55,21 @@
    kj/docker-image-name "bash")
   (kj/docker--show-side-window))
 
-(defun kj/docker-stop ()
+(defun kj/docker-v-commit ()
+  "保存最新的虚拟机状态."
+  (interactive)
+  (start-process
+   "kj/docker-commit" (kj/docker-buf)
+   "docker" "commit" kj/docker-container-name kj/docker-image-name)
+  (kj/docker--show-side-window))
+
+(defun kj/docker-v-stop ()
   (interactive)
   (start-process "kj/docker-stop" (kj/docker-buf)
                  "docker" "stop" kj/docker-container-name)
   (kj/docker--show-side-window))
 
-(defun kj/docker-start ()
+(defun kj/docker-v-start ()
   (interactive)
   (start-process "kj/docker-stop" (kj/docker-buf)
                  "docker" "start" kj/docker-container-name)
