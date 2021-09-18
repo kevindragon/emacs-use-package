@@ -7,7 +7,8 @@
 
 ;;; Code:
 (use-package eaf
-  :load-path "~/.emacs.d/site-lisp/emacs-application-framework" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+  ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+  :load-path "~/.emacs.d/site-lisp/emacs-application-framework"
   :init
   (use-package epc :defer t :ensure t)
   (use-package ctable :defer t :ensure t)
@@ -17,8 +18,8 @@
   (eaf-browser-continue-where-left-off t)
   :config
   (eaf-setq eaf-browser-enable-adblocker "true")
-  (eaf-setq eaf-python-command "c:/Users/jiangkx/Python38/python.exe")
-  (setq eaf-python-command "c:/Users/jiangkx/Python38/python.exe")
+  (eaf-setq eaf-python-command "C:/Users/jiangkx/Miniconda3/python.exe")
+  (setq eaf-python-command "C:/Users/jiangkx/Miniconda3/python.exe")
   (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)

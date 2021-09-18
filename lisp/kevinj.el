@@ -74,6 +74,8 @@
     (setq alpha-list (cdr (append alpha-list (list h))))))
 (global-set-key [(f11)] 'loop-alpha)
 
+;;;; 常用函数
+
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
@@ -100,6 +102,11 @@
   (interactive)
   (let ((current-date-time-format "%Y-%m-%d"))
     (insert (format-time-string current-date-time-format))))
+
+(defun kj/copy-current-line-number ()
+  "复制当前行号"
+  (interactive)
+  (kill-new (format "%s" (line-number-at-pos))))
 
 (defun kj/copy-buffer-file-name ()
   "复制buffer对应的文件的绝对路径."

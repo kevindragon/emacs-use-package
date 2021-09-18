@@ -65,11 +65,15 @@
 
 (require 'init-sql)
 
-(require 'init-eaf)
+;; (require 'init-eaf)
 
 (require 'kevinj)
 (require 'kj-docker)
 (require 'randomize-region)
+
+(require 'antlr-mode)
+(autoload 'antlr-v4-mode "antlr-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.g4\\'" . antlr-v4-mode))
 
 
 (custom-set-variables

@@ -37,6 +37,10 @@
           "--stdio")))
 
 
+;;; js-mode
+(setq js-indent-level 2)
+
+
 (provide 'init-web)
 
 ;;; init-web.el ends here

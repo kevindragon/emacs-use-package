@@ -10,7 +10,7 @@
   :config
 
   ;; Sample jar configuration
-  (setq plantuml-jar-path "c:/software/plantuml.jar")
+  (setq plantuml-jar-path "c:/Software/plantuml.jar")
   (setq plantuml-default-exec-mode 'jar)
 
   (setq org-plantuml-jar-path plantuml-jar-path)
