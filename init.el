@@ -6,6 +6,9 @@
 (setq user-full-name "Kevin Jiang")
 (setq user-mail-address "wenlin1988@126.com")
 
+(setq gc-cons-threshold most-positive-fixnum)
+(add-hook 'after-init-hook #'(lambda () (setq gc-cons-threshold 800000)))
+
 ;; 加速配置。
 (setq
  ;; 不要缩放frame.
@@ -16,8 +19,11 @@
  package-enable-at-startup nil
  package--init-file-ensured t)
 
+(defun is-windows? ()
+  (string-equal system-type "windows-nt"))
+
 (defvar my-workspace-dir
-  (if (string-equal system-type "windows-nt")
+  (if (is-windows?)
       "C:/workspace"
     (expand-file-name "~/workspace")))
 
@@ -27,15 +33,15 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path my-emacs-config-dir)
 
-(defun is-windows? ()
-  (string-equal system-type "windows-nt"))
-
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
+(when (not (featurep 'use-package))
+  (package-install 'use-package))
+
 ;; (package-refresh-contents)
 
 (require 'use-package-ensure)
@@ -51,19 +57,22 @@
 (require 'init-symbol-overlay)
 (require 'init-yasnippet)
 (require 'init-rg)
+
+(require 'init-sql)
 (require 'init-org)
+(require 'init-treemacs)
+
 (require 'init-prog)
 (require 'init-company)
+(require 'init-magit)
 (require 'init-lsp)
 (require 'init-ivy)
 (require 'init-python)
 (require 'init-java)
 (require 'init-web)
 (require 'init-restclient)
-
+(require 'init-plantuml)
 (require 'init-yaml)
-
-(require 'init-sql)
 
 ;; (require 'init-eaf)
 
@@ -76,24 +85,31 @@
 (add-to-list 'auto-mode-alist '("\\.g4\\'" . antlr-v4-mode))
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(tide web-mode ng2-mode ein-notebook ob-restclient typescript-mode yaml-mode ein elpy plantuml-mode treemacs-all-the-icons kubernetes doom-themes restclient lsp-java python-pytest counsel ivy dap-java dap-python company-posframe magit hl-todo htmlize org-pomodoro powershell flycheck-posframe flycheck rg ripgrep yasnippet-snippets yasnippet symbol-overlay benchmark-init dashboard all-the-icons exec-path-from-shell page-break-lines window-numbering dracula-theme company-quickhelp company-help lsp-pyright company projectile use-package))
- '(safe-local-variable-values
-   '((project-enable-remote . t)
-     (remote-path . "/data/sdb/kevin/workspace/lnip_backend_semantic_analysis")
-     (remote-user . "tpo")
-     (remote-host . "10.123.4.230")
-     (remote-path . "")
-     (remote-user . "")
-     (remote-host . ""))))
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(package-selected-packages
+;;    '(tide web-mode ein-notebook ob-restclient typescript-mode yaml-mode ein elpy plantuml-mode treemacs-all-the-icons kubernetes doom-themes restclient lsp-java python-pytest counsel ivy dap-java dap-python company-posframe magit hl-todo htmlize org-pomodoro powershell flycheck-posframe flycheck rg ripgrep yasnippet-snippets yasnippet symbol-overlay benchmark-init dashboard all-the-icons exec-path-from-shell page-break-lines window-numbering dracula-theme company-quickhelp company-help lsp-pyright company projectile use-package))
+;;  '(safe-local-variable-values
+;;    '((project-enable-remote . t)
+;;      (remote-path . "/data/sdb/kevin/workspace/lnip_backend_semantic_analysis")
+;;      (remote-user . "tpo")
+;;      (remote-host . "10.123.4.230")
+;;      (remote-path . "")
+;;      (remote-user . "")
+;;      (remote-host . ""))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(org-roam emacsql-sqlite3 magit yasnippet-snippets yaml-mode window-numbering which-key web-mode use-package tide symbol-overlay smex ripgrep rg python-pytest powershell plantuml-mode page-break-lines org-pomodoro ob-restclient lsp-ui lsp-pyright lsp-java lsp-ivy htmlize hl-todo git-commit exec-path-from-shell ein doom-themes dashboard counsel company-quickhelp company-posframe benchmark-init all-the-icons)))

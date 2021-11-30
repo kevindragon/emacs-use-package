@@ -37,6 +37,15 @@
   (setq sql-mysql-login-params (append sql-mysql-login-params '(port)))
   (add-hook 'sql-interactive-mode-hook #'kj/sql-interactive-mode-hook))
 
+(use-package emacsql-sqlite
+  :init
+  (setq-default emacsql-sqlite-executable "c:/Software/sqlite/sqlite3.exe")
+  :config
+  (setenv "PATH" (concat (getenv "PATH") "C:/Software/sqlite"))
+  (setq exec-path (append exec-path '("C:/Software/sqlite"))))
+
+(use-package emacsql-sqlite3)
+
 
 
 (provide 'init-sql)

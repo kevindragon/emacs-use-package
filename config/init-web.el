@@ -23,18 +23,19 @@
         web-mode-script-padding 0))
 
 
-(use-package ng2-mode)
+;; (use-package ng2-mode)
 
 (with-eval-after-load "lsp-mode"
   (setq lsp-clients-angular-language-server-command
         '("node"
-          ;; "C:/software/vscode-ng-language-service-master"
-          "C:/Users/jiangkx/AppData/Roaming/npm/node_modules/@angular/language-server"
+          "C:/Software/node-v14.17.3-win-x64/node_modules/@angular/language-server"
           "--ngProbeLocations"
-          "C:/Users/jiangkx/AppData/Roaming/npm/node_modules/@angular/language-service"
+          "C:/Software/node-v14.17.3-win-x64/node_modules/"
+          ;; "C:/Software/node-v14.17.3-win-x64/node_modules/@angular/language-service"
           "--tsProbeLocations"
-          "C:/Users/jiangkx/AppData/Roaming/npm/node_modules/typescript"
-          "--stdio")))
+          "C:/Software/node-v14.17.3-win-x64/node_modules"
+          "--stdio"))
+  )
 
 
 ;;; js-mode

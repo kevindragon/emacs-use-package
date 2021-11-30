@@ -88,6 +88,21 @@
 ;; (add-hook 'org-agenda-finalize-hook #'kj/org-agenda-time-grid-spacing)
 
 
+
+(setq org-roam-database-connector 'sqlite3)
+(setq-default org-roam-database-connector 'sqlite3)
+
+(use-package org-roam
+  :init (setq org-roam-database-connector 'sqlite3)
+  (setq-default org-roam-database-connector 'sqlite3)
+  (setq-default org-roam-v2-ack t)
+  :config
+  (setq org-roam-database-connector 'sqlite3)
+  (setq-default org-roam-database-connector 'sqlite3)
+  (setq org-roam-directory (file-truename "C:/workspace/orgs/LexisNexis"))
+  (message "run into use-package org-roam"))
+
+
 ;;; 我的博客配置
 (require 'ox-publish)
 (setq
