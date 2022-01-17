@@ -74,7 +74,7 @@
 (require 'init-plantuml)
 (require 'init-yaml)
 
-;; (require 'init-eaf)
+(require 'init-eaf)
 
 (require 'kevinj)
 (require 'kj-docker)
@@ -112,4 +112,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-roam emacsql-sqlite3 magit yasnippet-snippets yaml-mode window-numbering which-key web-mode use-package tide symbol-overlay smex ripgrep rg python-pytest powershell plantuml-mode page-break-lines org-pomodoro ob-restclient lsp-ui lsp-pyright lsp-java lsp-ivy htmlize hl-todo git-commit exec-path-from-shell ein doom-themes dashboard counsel company-quickhelp company-posframe benchmark-init all-the-icons)))
+   '(dracula-theme org-present epc org-roam emacsql-sqlite3 magit yasnippet-snippets yaml-mode window-numbering which-key web-mode use-package tide symbol-overlay smex ripgrep rg python-pytest powershell plantuml-mode page-break-lines org-pomodoro ob-restclient lsp-ui lsp-pyright lsp-java lsp-ivy htmlize hl-todo exec-path-from-shell ein doom-themes dashboard counsel company-quickhelp company-posframe benchmark-init all-the-icons)))

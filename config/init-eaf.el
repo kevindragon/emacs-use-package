@@ -17,13 +17,17 @@
   :custom
   (eaf-browser-continue-where-left-off t)
   :config
-  (eaf-setq eaf-browser-enable-adblocker "true")
-  (eaf-setq eaf-python-command "C:/Users/jiangkx/Miniconda3/python.exe")
-  (setq eaf-python-command "C:/Users/jiangkx/Miniconda3/python.exe")
-  (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
-  (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+  (require 'eaf-browser)
+  (require 'eaf-pdf-viewer)
+  (require 'eaf-org-previewer)
+  ;; (eaf-setq eaf-browser-enable-adblocker "true")
+  ;; (eaf-setq eaf-python-command "C:/Users/jiangkx/Miniconda3/python.exe")
+  ;; (setq eaf-python-command "C:/Users/jiangkx/Miniconda3/python.exe")
+  ;; (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+  ;; (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+  ;; (eaf-bind-key take_photo "p" eaf-camera-keybinding)
+  ;; (eaf-bind-key nil "M-q" eaf-browser-keybinding)
+  ) ;; unbind, see more in the Wiki
 
 
 (provide 'init-eaf)

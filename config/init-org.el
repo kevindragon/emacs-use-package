@@ -17,9 +17,10 @@
 
 (setq org-directory (concat my-workspace-dir "/orgs"))
 (setq org-agenda-files (list (concat my-workspace-dir "/orgs/todo.org")
+                             (concat my-workspace-dir "/orgs/notes.org")
                              (concat my-workspace-dir "/orgs/learn.org")
                              (concat my-workspace-dir "/orgs/task.org")))
-(setq org-default-notes-file (concat org-directory "/task.org"))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-hide-leading-stars t)         ;使星号不可见
 (setq org-enable-table-editor 1)        ;启用内建的电子表格
 (setq org-log-done t)                   ;日志记录
@@ -32,6 +33,9 @@
 (setq org-agenda-span 10
       org-agenda-start-on-weekday nil
       org-agenda-start-day "-3d")
+
+;; 设置内嵌图片显示的宽度可以使用#+attr_org来设置
+(setq org-image-actual-width nil)
 
 ;; 编辑代码按 C-c ' 返回org的时候前面的空格
 (setq org-edit-src-content-indentation 0)
@@ -99,8 +103,7 @@
   :config
   (setq org-roam-database-connector 'sqlite3)
   (setq-default org-roam-database-connector 'sqlite3)
-  (setq org-roam-directory (file-truename "C:/workspace/orgs/LexisNexis"))
-  (message "run into use-package org-roam"))
+  (setq org-roam-directory (file-truename "C:/workspace/orgs")))
 
 
 ;;; 我的博客配置
