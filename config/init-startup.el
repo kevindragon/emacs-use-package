@@ -10,14 +10,20 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;;; coding system
-(prefer-coding-system 'cp950)
-(prefer-coding-system 'gb2312)
-(prefer-coding-system 'cp936)
-(prefer-coding-system 'gb18030)
-(prefer-coding-system 'utf-16)
-(prefer-coding-system 'utf-8)
-(prefer-coding-system 'utf-8-dos)
-(prefer-coding-system 'utf-8-unix)
+(when (is-windows?)
+  (prefer-coding-system 'cp950)
+  (prefer-coding-system 'gb2312)
+  (prefer-coding-system 'cp936)
+  (prefer-coding-system 'gb18030)
+  (prefer-coding-system 'utf-16)
+  (prefer-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8-dos)
+  (prefer-coding-system 'utf-8-unix))
+(when (is-osx?)
+  (prefer-coding-system 'utf-16)
+  (prefer-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8-dos)
+  (prefer-coding-system 'utf-8-unix))
 
 ;; (when (eq system-type 'windows-nt)
 ;;   ;; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
@@ -34,27 +40,46 @@
 (setenv "LANG" "en_US.UTF-8")
 
 ;;; set fonts
-(when (eq system-type 'windows-nt)
-  (set-face-attribute
-   'default nil
-   :font (font-spec
-          ;; :name "-outline-Courier New-bold-italic-normal-mono-*-*-*-*-c-*-iso10646-1"
-          :family "Source Code Pro"  ; "Courier New"
-          :weight 'normal
-          :slant 'normal
-          :size 9.5))
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+(require 'font-utils)
+(if (font-utils-exists-p "Source Code Pro")
+    (set-face-attribute
+     'default nil
+     :font (font-spec
+            :family "Source Code Pro"  ; "Courier New"
+            :weight 'normal
+            :slant 'normal
+            :size (if (is-windows?) 9.5 13.0)))
+  (error "Font family `Source Code Pro' is not existing, please install."))
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font
      (frame-parameter nil 'font)
      charset
      (font-spec
-      ;; :name "-outline-微软雅黑-normal-normal-normal-sans-*-*-*-*-p-*-iso10646-1"
-      :family "Microsoft Yahei"
+      :family (if (is-windows?) "Microsoft Yahei" "Monaco")
       :weight 'normal
       :slant 'normal
-      :size 12.0)))
-  ;; (setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2)))
-  )
+      :size (if (is-windows?) 12.0 16.0))))
+;; (when (eq system-type 'windows-nt)
+;;   (set-face-attribute
+;;    'default nil
+;;    :font (font-spec
+;;           ;; :name "-outline-Courier New-bold-italic-normal-mono-*-*-*-*-c-*-iso10646-1"
+;;           :family "Source Code Pro"  ; "Courier New"
+;;           :weight 'normal
+;;           :slant 'normal
+;;           :size 9.5))
+;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;;     (set-fontset-font
+;;      (frame-parameter nil 'font)
+;;      charset
+;;      (font-spec
+;;       ;; :name "-outline-微软雅黑-normal-normal-normal-sans-*-*-*-*-p-*-iso10646-1"
+;;       :family "Microsoft Yahei"
+;;       :weight 'normal
+;;       :slant 'normal
+;;       :size 12.0)))
+;;   ;; (setq face-font-rescale-alist '(("Microsoft Yahei" . 1.2)))
+;;   )
 
 ;;; set location on frame title
 (defun frame-title-string ()

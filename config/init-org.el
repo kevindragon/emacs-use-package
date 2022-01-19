@@ -18,8 +18,7 @@
 (setq org-directory (concat my-workspace-dir "/orgs"))
 (setq org-agenda-files (list (concat my-workspace-dir "/orgs/todo.org")
                              (concat my-workspace-dir "/orgs/notes.org")
-                             (concat my-workspace-dir "/orgs/learn.org")
-                             (concat my-workspace-dir "/orgs/task.org")))
+                             (concat my-workspace-dir "/orgs/learn.org")))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-hide-leading-stars t)         ;使星号不可见
 (setq org-enable-table-editor 1)        ;启用内建的电子表格
