@@ -77,7 +77,8 @@
 (require 'init-plantuml)
 (require 'init-yaml)
 
-(require 'init-eaf)
+(when (is-windows?)
+  (require 'init-eaf))
 
 (require 'kevinj)
 (require 'kj-docker)

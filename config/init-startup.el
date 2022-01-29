@@ -23,7 +23,14 @@
   (prefer-coding-system 'utf-16)
   (prefer-coding-system 'utf-8)
   (prefer-coding-system 'utf-8-dos)
-  (prefer-coding-system 'utf-8-unix))
+  (prefer-coding-system 'utf-8-unix)
+  ;; macOS下把command键设置为meta键
+  (progn
+    (setq mac-option-key-is-meta nil)
+    (setq mac-command-key-is-meta t)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil)
+    (message "Mac OS X")))
 
 ;; (when (eq system-type 'windows-nt)
 ;;   ;; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
