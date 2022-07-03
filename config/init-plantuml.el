@@ -10,7 +10,8 @@
   :config
 
   ;; Sample jar configuration
-  (setq plantuml-jar-path "c:/Software/plantuml.jar")
+  (setq plantuml-jar-path
+        (expand-file-name "bin/plantuml/plantuml-1.2022.6.jar" user-emacs-directory))
   (setq plantuml-default-exec-mode 'jar)
 
   (setq org-plantuml-jar-path plantuml-jar-path)

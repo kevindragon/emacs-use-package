@@ -9,9 +9,9 @@
 ;;; Code:
 (use-package treemacs
   :init
-  (setq-default treemacs-python-executable "c:/Users/jiangkx/Miniconda3/python.exe")
+  (setq-default treemacs-python-executable PYTHON_PATH)
   :config
-  (setq treemacs-python-executable "c:/Users/jiangkx/Miniconda3/python.exe")
+  (setq treemacs-python-executable PYTHON_PATH)
   (when (featurep 'lsp-mode)
     (use-package lsp-treemacs :commands lsp-treemacs-errors-list))
   (treemacs-resize-icons 16))
